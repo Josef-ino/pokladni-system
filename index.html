@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<title>Pokladní systém</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Login -->
+<div id="login">
+  <h2>Přihlášení</h2>
+  <input id="user" placeholder="Uživatelské jméno"><br>
+  <input id="pass" type="password" placeholder="Heslo"><br>
+  <button onclick="login()">Přihlásit</button>
+  <p id="login-msg" style="color:red;"></p>
+</div>
+
+<!-- App -->
+<div id="app" class="hidden">
+  <h1>Pokladní systém</h1>
+  <div>
+    <button onclick="openCompany()">Firemní údaje</button>
+    <button onclick="openReceipt()">Formát účtenky</button>
+    <button onclick="exportProducts()">Export produktů</button>
+    <input type="file" id="importFile" onchange="importProducts()" style="display:none">
+    <button onclick="document.getElementById('importFile').click()">Import produktů</button>
+  </div>
+
+  <div class="container">
+    <div class="box">
+      <h2>Produkty</h2>
+      <div id="product-list"></div>
+      <h3>Přidat produkt</h3>
+      <input id="newName" placeholder="Název">
+      <input id="newPrice" type="number" placeholder="Cena">
+      <button onclick="addProduct()">Přidat</button>
+    </div>
+
+    <div class="box">
+      <h2>Košík</h2>
+      <table id="cart-table"><tr><th>Název</th><th>Cena</th></tr></table>
+      <div class="total" id="total">Celkem: 0 CZK</div>
+      <button onclick="completeOrder()">Zakončit účet</button>
+      <button onclick="resetCart()">Reset</button>
+    </div>
+
+    <div class="box">
+      <h2>Historie prodeje</h2>
+      <ul id="history-list"></ul>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Firemní údaje -->
+<div id="companyModal" class="hidden">
+  <h2>Firemní údaje</h2>
+  <input id="cName" placeholder="Název firmy">
+  <input id="cAddress" placeholder="Adresa">
+  <input id="cTel" placeholder="Telefon">
+  <input id="cEmail" placeholder="E-mail">
+  <input id="cFooter" placeholder="Zápatí">
+  <button onclick="saveCompany()">Uložit</button>
+  <button onclick="closeCompany()">Zavřít</button>
+</div>
+
+<!-- Modal Formát účtenky -->
+<div id="receiptModal" class="hidden">
+  <h2>Formát účtenky</h2>
+  <textarea id="rHeader" placeholder="Hlavička"></textarea>
+  <textarea id="rCompany" placeholder="Informace o firmě"></textarea>
+  <textarea id="rOrder" placeholder="Informace o objednávce"></textarea>
+  <textarea id="rItemsHeader" placeholder="Hlavička položek"></textarea>
+  <textarea id="rItems" placeholder="Položky"></textarea>
+  <textarea id="rTotal" placeholder="Celkem"></textarea>
+  <textarea id="rFooter" placeholder="Zápatí"></textarea>
+  <button onclick="saveReceipt()">Uložit</button>
+  <button onclick="closeReceipt()">Zavřít</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
