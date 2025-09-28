@@ -1,0 +1,74 @@
+/* Reset a základní styl */
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: #f4f6f8;
+  color: #222;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+h1,h2{ margin-bottom:10px; font-weight:600; }
+h1{ font-size:1.8rem; text-align:center; margin-bottom:20px; }
+
+.container{ display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
+
+.box {
+  flex:1 1 300px;
+  background:#fff;
+  border:1px solid #ccc;
+  border-radius:12px;
+  padding:15px 20px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.box:hover { transform:translateY(-3px); box-shadow:0 6px 15px rgba(0,0,0,0.1); }
+
+button {
+  display:inline-block;
+  background:#0078d7;
+  color:white;
+  border:none;
+  border-radius:8px;
+  padding:8px 14px;
+  margin-top:6px;
+  cursor:pointer;
+  transition: background 0.2s;
+}
+button:hover { background:#005a9e; }
+
+input, textarea {
+  width:100%;
+  border:1px solid #ccc;
+  border-radius:6px;
+  padding:8px;
+  margin:5px 0 10px;
+  font-size:0.9rem;
+}
+
+table{ width:100%; border-collapse:collapse; margin-top:10px; font-size:0.9rem; }
+th, td{ border:1px solid #ddd; padding:6px 8px; text-align:left; }
+th{ background:#f0f0f0; }
+
+.total{ font-weight:bold; margin-top:10px; font-size:1.1rem; }
+
+#companyModal, #receiptModal{
+  position:fixed; top:50%; left:50%;
+  transform:translate(-50%,-50%);
+  background:#fff;
+  border-radius:12px;
+  padding:20px;
+  box-shadow:0 6px 20px rgba(0,0,0,0.3);
+  z-index:1000;
+  width:90%; max-width:500px;
+}
+.hidden{ display:none; }
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  body{ background:#1e1e1e; color:#eee; }
+  .box{ background:#2a2a2a; border-color:#444; }
+  button{ background:#444; color:#eee; }
+  input, textarea{ background:#333; color:#eee; border-color:#555; }
+}
