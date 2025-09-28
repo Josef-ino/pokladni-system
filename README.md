@@ -1,0 +1,2 @@
+# pokladni-system
+without NFC
